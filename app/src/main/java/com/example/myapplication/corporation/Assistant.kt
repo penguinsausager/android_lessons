@@ -28,4 +28,5 @@ class Assistant(
     override fun buyThings() {
         println("My position is Assistant. I'm buying things...")
     }
+
 }
