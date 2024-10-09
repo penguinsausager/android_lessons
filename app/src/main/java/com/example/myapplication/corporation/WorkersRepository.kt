@@ -15,9 +15,10 @@ object WorkersRepository {
     }
 
     fun changeSalary(id: Int, salary: Int) {
-        for (worker in _workers) {
+        for ((index, worker)  in _workers.withIndex()) {
             if (worker.id == id) {
-                worker.setSalary(salary)
+                val newWorker = worker.copy(salary = salary)
+                _workers[index] = newWorker
             }
         }
 
@@ -34,7 +35,7 @@ object WorkersRepository {
     fun saveChanges() {
         val content = StringBuilder()
         for (worker in _workers) {
-            content.append("${worker.id}%${worker.name}%${worker.age}%${worker.getSalary()}%${worker.position}\n")
+            content.append("${worker.id}%${worker.name}%${worker.age}%${worker.salary}%${worker.position}\n")
         }
         fileWorkers.writeText(content.toString())
     }
@@ -65,6 +66,15 @@ object WorkersRepository {
             employees.add(worker)
         }
         return employees
+    }
+
+    fun changeAge(id: Int, age: Int) {
+        for ((index, worker)  in _workers.withIndex()) {
+            if (worker.id == id) {
+                val newWorker = worker.copy(age = age)
+                _workers[index] = newWorker
+            }
+        }
     }
 
 }

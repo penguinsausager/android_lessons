@@ -17,6 +17,11 @@ class Accountant(
     private val workersRepository = WorkersRepository
     private val productCardsRepository = ProductCardsRepository
 
+    override fun copy(salary: Int, age: Int): Accountant {
+        return Accountant(id, name, age , salary) //поля id name age будут как у того
+                                                 //объекта, у которого вызвали copy
+    }
+
     override fun work() {
         val operationCodes = OperationCode.entries
         while (true) {
@@ -34,15 +39,25 @@ class Accountant(
                     break
                 }
                 OperationCode.REGISTER_OPERATION -> registerNewItem()
-                OperationCode.SHOW_ALL_ITEMS -> showAllItems()
+                OperationCode.SHOW_ALL_ITEMS -> showAllCards()
                 OperationCode.REMOVE_PRODUCT_CARD -> removeProductCard()
                 OperationCode.REGISTER_NEW_EMPLOYEE -> registerNewEmployee()
                 OperationCode.FIRE_AN_EMPLOYEE -> fireAnEmployee()
                 OperationCode.SHOW_ALL_EMPLOYEES -> showAllEmployees()
                 OperationCode.CHANGE_SALARY -> changeSalary()
+                OperationCode.CHANGE_AGE -> changeAge()
             }
         }
     }
+
+    private fun changeAge(){
+        println("Enter employee's id to change age: ")
+        val id = readln().toInt()
+        println("Enter new age: ")
+        val age = readln().toInt()
+        workersRepository.changeAge(id, age)
+    }
+
 
     private fun changeSalary(){
         println("Enter employee's id to change salary: ")
@@ -51,6 +66,13 @@ class Accountant(
         val salary = readln().toInt()
         workersRepository.changeSalary(id, salary)
 
+    }
+
+    private fun showAllCards() {
+        val cards = productCardsRepository.productCards
+        for (card in cards) {
+            card.printInfo()
+        }
     }
 
     private fun fireAnEmployee() {
@@ -104,11 +126,6 @@ class Accountant(
         println("Enter name of card for removing: ")
         val name = readln()
         productCardsRepository.removeProductCard(name)
-    }
-
-
-    private fun showAllItems() {
-        productCardsRepository.showAllItems()
     }
 
     private fun registerNewItem() {

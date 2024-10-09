@@ -17,6 +17,10 @@ class Director(
         println("I'm working now")
     }
 
+    override fun copy(salary: Int, age: Int): Director {
+        return Director(id, name, age, salary)
+    }
+
     override fun buyThings() {
         println("My position is Director. I'm buying things...")
     }
