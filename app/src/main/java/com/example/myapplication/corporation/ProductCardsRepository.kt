@@ -49,9 +49,9 @@ object ProductCardsRepository {
         _productCards.add(productCard)
     }
 
-    private fun loadAllCards(): MutableList<ProductCard> {
+    private fun loadAllCards(): MutableSet<ProductCard> {
 
-        val cards: MutableList<ProductCard> = mutableListOf()
+        val cards = mutableSetOf<ProductCard>()
         val content = fileProductCarts.readText().trim()
 
         if(!fileProductCarts.exists()) fileProductCarts.createNewFile()

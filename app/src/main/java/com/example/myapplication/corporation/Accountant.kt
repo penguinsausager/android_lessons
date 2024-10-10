@@ -2,10 +2,10 @@ package com.example.myapplication.corporation
 
 
 class Accountant(
-    id: Int,
-    name: String,
-    age: Int,
-    salary: Int,
+    override val id: Int,
+    override val name: String,
+    override val age: Int,
+    override val  salary: Int,
 ) : Worker(
     id = id,
     name = name,

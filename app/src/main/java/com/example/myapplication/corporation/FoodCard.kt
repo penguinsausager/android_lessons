@@ -1,9 +1,9 @@
 package com.example.myapplication.corporation
 
 class FoodCard(
-    name: String,
-    brand: String,
-    price: Int,
+    override val name: String,
+    override val brand: String,
+    override val price: Int,
     val cal: Int,
 ): ProductCard(
     name = name,

@@ -1,11 +1,11 @@
 package com.example.myapplication.profile
 
-class Person
+data class Person
     (
-    private val name: String,
-    private var surname: String,
-    private val height: Int,
-    private val weight: Int,
+    val name: String,
+    val surname: String,
+    val height: Int,
+    val weight: Int,
 ) {
     private val fullName: String
         get() = "$name $surname"
@@ -28,5 +28,6 @@ class Person
     fun printInfo(){
         println("$name, $age, $height, $weight")
     }
+
 
 }

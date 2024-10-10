@@ -1,9 +1,9 @@
 package com.example.myapplication.corporation
 
-class ShoeCard(
-    name: String,
-    brand: String,
-    price: Int,
+data class ShoeCard(
+    override val name: String,
+    override val brand: String,
+    override val price: Int,
     val size: Int,
 ): ProductCard(
     name = name,
@@ -14,6 +14,5 @@ class ShoeCard(
     override fun printInfo() {
         print(this)
         println(" Size: $size")
-
     }
 }
