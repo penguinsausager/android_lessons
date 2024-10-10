@@ -1,21 +1,20 @@
 package com.example.myapplication.corporation
 
 fun main() {
+    val assistant = WorkersRepository.findAssistant()
+    assistant?.printInfo()
 
-//    val workers = WorkersRepository.workers
-//    for (worker in workers){
-//        worker.work()
-//    }
-
-    val workers = mutableSetOf<Worker>()
-    val a = Director(0, "", 0, 0)
-    val b = Director(0, "", 0, 0)
-    workers.add(a)
-    workers.add(b)
-
-    for (worker in workers){
-        worker.printInfo()
+    val director = WorkersRepository.findDirector()
+    if (assistant != null) {
+        director?.takeCoffee(assistant)
     }
 
-    println()
+    val directorSalary = director?.salary ?: 0
+    val assistantSalary = assistant?.salary ?: 0
+    val a = method()
+
+
+}
+fun method(){
+
 }

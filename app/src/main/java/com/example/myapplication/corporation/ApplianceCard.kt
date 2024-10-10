@@ -11,7 +11,7 @@ class ApplianceCard(
     price = price,
     ProductType.APPLIANCE,
 ) {
-    override fun printInfo() {
+     override fun printInfo() {
         print(this)
         println("Cal: $wattage")
     }

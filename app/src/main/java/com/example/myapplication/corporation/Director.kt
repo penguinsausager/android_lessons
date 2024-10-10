@@ -21,6 +21,10 @@ data class Director(
         return Director(id, name, age, salary)
     }
 
+    fun takeCoffee(assistant: Assistant) {
+        val drinkName: String = assistant.bringCoffee().toString()
+    }
+
     override fun buyThings() {
         println("My position is Director. I'm buying things...")
     }

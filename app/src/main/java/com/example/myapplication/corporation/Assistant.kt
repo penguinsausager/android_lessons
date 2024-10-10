@@ -21,6 +21,10 @@ data class Assistant(
         println("Bring coffee")
     }
 
+    fun bringCoffee(){
+        println("Bringing coffee")
+    }
+
     override fun clean() {
         println("My position is Assistant. I'm cleaning workplace...")
     }
